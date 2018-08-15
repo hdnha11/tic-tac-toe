@@ -1,0 +1,9 @@
+{
+  "presets": ["env", "react"],
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-class-properties",
+    "syntax-object-rest-spread",
+    "styled-components"
+  ]
+}
