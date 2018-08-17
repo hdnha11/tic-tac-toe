@@ -21,8 +21,8 @@ describe('<Main />', () => {
     renderedMain = undefined;
   });
 
-  it('should render an <div> tag', () => {
-    expect(main().type()).toEqual('div');
+  it('should render an <main> tag', () => {
+    expect(main().type()).toEqual('main');
   });
 
   it('should render its children', () => {

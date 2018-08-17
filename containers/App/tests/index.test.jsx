@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Board from '../../Board';
+import Game from '../../Game';
 import App from '../index';
 
 describe('<App />', () => {
@@ -23,6 +23,6 @@ describe('<App />', () => {
   });
 
   it('should render the game board', () => {
-    expect(app().find(Board).length).toBe(1);
+    expect(app().find(Game).length).toBe(1);
   });
 });

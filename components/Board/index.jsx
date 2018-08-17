@@ -20,10 +20,10 @@ class Board extends Component {
     onCellClick: null,
   };
 
-  handleCellClick = (row, column) => () => {
+  handleCellClick = (row, column, value) => () => {
     const { onCellClick } = this.props;
 
-    if (onCellClick) {
+    if (onCellClick && !value) {
       onCellClick(row, column);
     }
   };
@@ -39,7 +39,7 @@ class Board extends Component {
               {row.map((column, columnIndex) => (
                 <Cell
                   key={columnIndex}
-                  onClick={this.handleCellClick(rowIndex, columnIndex)}
+                  onClick={this.handleCellClick(rowIndex, columnIndex, column)}
                 >
                   <Mark type={MARKS[column]} />
                 </Cell>

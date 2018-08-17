@@ -10,27 +10,31 @@ const icons = {
 };
 
 const Path = styled.path`
-  fill: ${props => (props.type === 'x' ? '#545454' : '#f2ebd3')};
+  fill: ${props => props.color || (props.type === 'x' ? '#545454' : '#f2ebd3')};
 `;
 
-const Mark = ({ type }) => {
+const Mark = ({ type, size, color }) => {
   if (!icons[type]) {
     return null;
   }
 
   return (
-    <svg width="48px" height="48px" viewBox="0 0 48 48">
-      <Path type={type} d={icons[type]} />
+    <svg width={size} height={size} viewBox="0 0 48 48">
+      <Path type={type} color={color} d={icons[type]} />
     </svg>
   );
 };
 
 Mark.propTypes = {
   type: PropTypes.string,
+  size: PropTypes.string,
+  color: PropTypes.string,
 };
 
 Mark.defaultProps = {
   type: '',
+  size: '48px',
+  color: '',
 };
 
 export default Mark;

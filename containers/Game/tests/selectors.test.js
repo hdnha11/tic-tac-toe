@@ -1,11 +1,11 @@
 import { getRows } from '../selectors';
 
-describe('Board Selectors', () => {
+describe('Game Selectors', () => {
   let state;
 
   beforeEach(() => {
     state = {
-      board: {
+      game: {
         rows: [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
       },
     };
@@ -17,7 +17,7 @@ describe('Board Selectors', () => {
 
       expect(getRows(state)).toEqual([[0, 0, 0], [0, 0, 0], [0, 0, 0]]);
 
-      state.board.rows = expected;
+      state.game.rows = expected;
       expect(getRows(state)).toEqual(expected);
     });
   });
