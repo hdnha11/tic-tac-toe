@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Game from '../../Game';
 import App from '../index';
+import Footer from '../Footer';
 
 describe('<App />', () => {
   let props;
@@ -24,5 +25,9 @@ describe('<App />', () => {
 
   it('should render the game board', () => {
     expect(app().find(Game).length).toBe(1);
+  });
+
+  it('should render the footer', () => {
+    expect(app().find(Footer).length).toBe(1);
   });
 });

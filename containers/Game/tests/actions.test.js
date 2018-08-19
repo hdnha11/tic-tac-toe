@@ -1,5 +1,5 @@
-import { MOVE } from '../constants';
-import { move } from '../actions';
+import { MOVE, NEW_GAME } from '../constants';
+import { move, newGame } from '../actions';
 
 describe('Game Actions', () => {
   describe('move', () => {
@@ -9,6 +9,14 @@ describe('Game Actions', () => {
         player: 1,
         row: 1,
         column: 1,
+      });
+    });
+  });
+
+  describe('newGame', () => {
+    it('should return correct type', () => {
+      expect(newGame()).toEqual({
+        type: NEW_GAME,
       });
     });
   });
