@@ -1,4 +1,5 @@
 # Tic Tac Toe
+A simple tic-tac-toe implementation which allow two users to take turns at entering **X** and **O**. Define the end conditions of the game and provide an alert message for the different outcomes of the game. Keep track of the game states.
 
 <div align="left">
   <!-- Build Status -->
