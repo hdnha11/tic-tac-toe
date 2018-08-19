@@ -4,7 +4,7 @@ const Button = styled.button`
   margin: 0;
   padding: ${props => (props.big ? '15px' : '10px')} 20px;
   color: rgba(0, 0, 0, 0.54);
-  background-color: #ffffff;
+  background-color: ${props => props.theme.buttonBgColor};
   font-size: 1rem;
   font-weight: 500;
   min-width: 88px;
@@ -15,7 +15,7 @@ const Button = styled.button`
   border: 0;
   border-radius: 2px;
   border-bottom: 2px solid
-    ${props => (props.highlight ? '#14bdac' : 'transparent')};
+    ${props => (props.highlight ? props.theme.highlightColor : 'transparent')};
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.16);
   text-transform: uppercase;
   transition: all 0.25s;

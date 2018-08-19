@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 
 const Main = styled.main`
-  max-width: ${props => props.theme.maxContentWidth}px;
-  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  background-color: ${props => props.theme.primaryColor};
+  overflow: hidden;
 `;
 
 export default Main;

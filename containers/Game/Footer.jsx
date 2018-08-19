@@ -8,7 +8,7 @@ const Footer = styled.footer`
 
   ${Button} {
     flex: 1 1 auto;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.primaryColor};
   }
 `;
 

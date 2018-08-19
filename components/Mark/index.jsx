@@ -10,7 +10,9 @@ const icons = {
 };
 
 const Path = styled.path`
-  fill: ${props => props.color || (props.type === 'x' ? '#545454' : '#f2ebd3')};
+  fill: ${props =>
+    props.color ||
+    (props.type === 'x' ? props.theme.xMarkColor : props.theme.oMarkColor)};
 `;
 
 const Mark = ({ type, size, color }) => {

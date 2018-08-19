@@ -14,7 +14,6 @@ injectGlobal`
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: rgba(0, 0, 0, 0.84);
-    background-color: ${theme.primary};
   }
 
   a {
@@ -28,7 +27,14 @@ const App = () => (
       <Game />
 
       <Footer>
-        Made with <Heart /> by <a href="//github.com/hdnha11">Nha Hoang</a>
+        Made with <Heart /> by&nbsp;
+        <a
+          href="//github.com/hdnha11"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Nha Hoang
+        </a>
       </Footer>
     </Main>
   </ThemeProvider>

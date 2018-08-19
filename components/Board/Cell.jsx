@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Cell = styled.td`
-  border: 6px solid #0da192;
+  border: 6px solid ${props => props.theme.borderColor};
   width: 64px;
   height: 64px;
   padding: 8px;
