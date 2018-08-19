@@ -101,3 +101,12 @@ $ npm run build
 ```
 $ npx http-server -p 8080 dist
 ```
+
+## Deployment
+
+```
+$ docker image build -f Dockerfile.prod -t tic-tac-toe:v1 .
+$ docker image tag tic-tac-toe:v1 registry.heroku.com/nha-tic-tac-toe/web
+$ docker image push registry.heroku.com/nha-tic-tac-toe/web
+$ heroku container:release web
+```
