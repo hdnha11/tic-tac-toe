@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Game from '../../Game';
+import ThemeToggle from '../../../components/ThemeToggle';
 import App from '../index';
 import Footer from '../Footer';
 
@@ -27,7 +28,20 @@ describe('<App />', () => {
     expect(app().find(Game).length).toBe(1);
   });
 
+  it('should render the theme toggle', () => {
+    expect(app().find(ThemeToggle).length).toBe(1);
+  });
+
   it('should render the footer', () => {
     expect(app().find(Footer).length).toBe(1);
+  });
+
+  it('should have correct theme state', () => {
+    expect(app().state('theme')).toBe('light');
+    app()
+      .find(ThemeToggle)
+      .props()
+      .onChange({ target: { checked: true } });
+    expect(app().state('theme')).toBe('dark');
   });
 });

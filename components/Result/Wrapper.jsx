@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 252px;
-  color: #545454;
+  color: ${props => props.theme.resultTextColor};
   font-size: 2.125rem;
   font-weight: 700;
 `;

@@ -7,10 +7,10 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px;
+  padding: 80px 20px 30px 20px;
 
   @media (max-width: ${props => props.theme.xxs}px) {
-    padding: 40px 10px;
+    padding: 30px 10px 15px 10px;
   }
 `;
 

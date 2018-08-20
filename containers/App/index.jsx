@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { injectGlobal, ThemeProvider } from 'styled-components';
 import Main from './Main';
 import Footer from './Footer';
 import Game from '../Game';
-import theme from '../../themes/default';
+import ThemeToggle from '../../components/ThemeToggle';
+import light from '../../themes/light';
+import dark from '../../themes/dark';
 
 injectGlobal`
   body {
@@ -20,13 +22,31 @@ injectGlobal`
   }
 `;
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <Main>
-      <Game />
-      <Footer />
-    </Main>
-  </ThemeProvider>
-);
+const themes = {
+  light,
+  dark,
+};
+
+class App extends Component {
+  state = {
+    theme: 'light',
+  };
+
+  handleThemeToggle = event => {
+    this.setState({ theme: event.target.checked ? 'dark' : 'light' });
+  };
+
+  render() {
+    return (
+      <ThemeProvider theme={themes[this.state.theme]}>
+        <Main>
+          <Game />
+          <ThemeToggle onChange={this.handleThemeToggle} />
+          <Footer />
+        </Main>
+      </ThemeProvider>
+    );
+  }
+}
 
 export default hot(module)(App);
