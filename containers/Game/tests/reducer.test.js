@@ -10,7 +10,7 @@ describe('Game Reducer', () => {
       turn: 1,
       score: { 1: 0, 2: 0 },
       winner: null,
-      winLine: null,
+      winMatrix: null,
       draw: false,
     };
   });
@@ -51,7 +51,7 @@ describe('Game Reducer', () => {
       turn: state.turn + 1,
       score: { 1: 1, 2: 0 },
       winner: 1,
-      winLine: { type: 'row', index: 0 },
+      winMatrix: [[1, 1, 1], [0, 0, 0], [0, 0, 0]],
     });
   });
 

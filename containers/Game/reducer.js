@@ -6,7 +6,7 @@ const initialState = () => ({
   turn: 1,
   score: { 1: 0, 2: 0 },
   winner: null,
-  winLine: null,
+  winMatrix: null,
   draw: false,
 });
 

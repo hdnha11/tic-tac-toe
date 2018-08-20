@@ -7,4 +7,5 @@ export default {
   buttonBgColor: '#ffffff',
   xMarkColor: '#545454',
   oMarkColor: '#f2ebd3',
+  overlayBgColor: 'rgba(87, 186, 172, 0.96)',
 };

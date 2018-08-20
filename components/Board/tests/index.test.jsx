@@ -21,6 +21,7 @@ describe('<Board />', () => {
   beforeEach(() => {
     props = {
       rows: undefined,
+      winMatrix: undefined,
       onCellClick: undefined,
     };
     children = undefined;
@@ -39,6 +40,15 @@ describe('<Board />', () => {
     expect(board().find(Cell).length).toEqual(9);
     expect(board().find(Mark).at(1).prop('type')).toEqual('x');
     expect(board().find(Mark).at(2).prop('type')).toEqual('o');
+  });
+
+  it('should highlight win line', () => {
+    props.rows = [[1, 1, 1], [0, 2, 0], [0, 2, 0]];
+    props.winMatrix = [[1, 1, 1], [0, 0, 0], [0, 0, 0]];
+
+    expect(board().find(Cell).at(0).prop('highlight')).toEqual(true);
+    expect(board().find(Cell).at(1).prop('highlight')).toEqual(true);
+    expect(board().find(Cell).at(2).prop('highlight')).toEqual(true);
   });
 
   it('should handle on cell click', () => {

@@ -9,8 +9,16 @@ import Wrapper from './Wrapper';
 import Header from './Header';
 import Footer from './Footer';
 import Body from './Body';
+import Overlay from './Overlay';
 import * as gameActionCreators from './actions';
-import { getRows, getTurn, getScore, getWinner, getDraw } from './selectors';
+import {
+  getRows,
+  getTurn,
+  getScore,
+  getWinner,
+  getWinMatrix,
+  getDraw,
+} from './selectors';
 
 export class Game extends Component {
   static propTypes = {
@@ -18,6 +26,7 @@ export class Game extends Component {
     turn: PropTypes.number,
     score: PropTypes.object,
     winner: PropTypes.number,
+    winMatrix: PropTypes.array,
     draw: PropTypes.bool,
     move: PropTypes.func.isRequired,
     newGame: PropTypes.func.isRequired,
@@ -28,6 +37,7 @@ export class Game extends Component {
     rows: [],
     score: {},
     winner: 0,
+    winMatrix: null,
     draw: false,
   };
 
@@ -45,7 +55,7 @@ export class Game extends Component {
 
   render() {
     const {
-      rows, score, turn, winner, draw,
+      rows, score, turn, winner, winMatrix, draw,
     } = this.props;
 
     return (
@@ -54,11 +64,12 @@ export class Game extends Component {
           <Score score={score} turn={turn} />
         </Header>
         <Body>
-          {winner || draw ? (
-            <Result winner={winner} draw={draw} />
-          ) : (
-            <Board rows={rows} onCellClick={this.handleMove} />
+          {(winner || draw) && (
+            <Overlay>
+              <Result winner={winner} draw={draw} />
+            </Overlay>
           )}
+          <Board rows={rows} winMatrix={winMatrix} onCellClick={this.handleMove} />
         </Body>
         <Footer>
           <Button onClick={this.handleRestartClick} big>
@@ -75,6 +86,7 @@ const mapStateToProps = state => ({
   turn: getTurn(state),
   score: getScore(state),
   winner: getWinner(state),
+  winMatrix: getWinMatrix(state),
   draw: getDraw(state),
 });
 

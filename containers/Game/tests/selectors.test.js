@@ -3,7 +3,7 @@ import {
   getTurn,
   getScore,
   getWinner,
-  getWinLine,
+  getWinMatrix,
   getDraw,
 } from '../selectors';
 
@@ -17,7 +17,7 @@ describe('Game Selectors', () => {
         turn: 1,
         score: { 1: 0, 2: 0 },
         winner: null,
-        winLine: null,
+        winMatrix: null,
         draw: false,
       },
     };
@@ -67,14 +67,14 @@ describe('Game Selectors', () => {
     });
   });
 
-  describe('getWinLine', () => {
-    it('should return winLine', () => {
-      const expected = { type: 'row', index: 0 };
+  describe('getWinMatrix', () => {
+    it('should return winMatrix', () => {
+      const expected = [[1, 1, 1], [0, 0, 0], [0, 0, 0]];
 
-      expect(getWinLine(state)).toEqual(null);
+      expect(getWinMatrix(state)).toEqual(null);
 
-      state.game.winLine = expected;
-      expect(getWinLine(state)).toEqual(expected);
+      state.game.winMatrix = expected;
+      expect(getWinMatrix(state)).toEqual(expected);
     });
   });
 

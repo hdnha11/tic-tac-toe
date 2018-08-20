@@ -12,11 +12,13 @@ const MARKS = {
 class Board extends Component {
   static propTypes = {
     rows: PropTypes.array,
+    winMatrix: PropTypes.array,
     onCellClick: PropTypes.func,
   };
 
   static defaultProps = {
     rows: [],
+    winMatrix: null,
     onCellClick: null,
   };
 
@@ -29,7 +31,7 @@ class Board extends Component {
   };
 
   render() {
-    const { rows } = this.props;
+    const { rows, winMatrix } = this.props;
 
     return (
       <Table>
@@ -39,6 +41,7 @@ class Board extends Component {
               {row.map((column, columnIndex) => (
                 <Cell
                   key={columnIndex}
+                  highlight={winMatrix && !!winMatrix[rowIndex][columnIndex]}
                   onClick={this.handleCellClick(rowIndex, columnIndex, column)}
                 >
                   <Mark type={MARKS[column]} />

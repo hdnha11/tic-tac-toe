@@ -7,7 +7,7 @@ describe('Game Utils', () => {
       const result = checkWin(rows);
 
       expect(result.winner).toEqual(1);
-      expect(result.winLine).toEqual({ type: 'row', index: 0 });
+      expect(result.winMatrix).toEqual([[1, 1, 1], [0, 0, 0], [0, 0, 0]]);
     });
 
     it('should check row 2', () => {
@@ -15,7 +15,7 @@ describe('Game Utils', () => {
       const result = checkWin(rows);
 
       expect(result.winner).toEqual(1);
-      expect(result.winLine).toEqual({ type: 'row', index: 1 });
+      expect(result.winMatrix).toEqual([[0, 0, 0], [1, 1, 1], [0, 0, 0]]);
     });
 
     it('should check row 3', () => {
@@ -23,7 +23,7 @@ describe('Game Utils', () => {
       const result = checkWin(rows);
 
       expect(result.winner).toEqual(1);
-      expect(result.winLine).toEqual({ type: 'row', index: 2 });
+      expect(result.winMatrix).toEqual([[0, 0, 0], [0, 0, 0], [1, 1, 1]]);
     });
 
     it('should check column 1', () => {
@@ -31,7 +31,7 @@ describe('Game Utils', () => {
       const result = checkWin(rows);
 
       expect(result.winner).toEqual(1);
-      expect(result.winLine).toEqual({ type: 'column', index: 0 });
+      expect(result.winMatrix).toEqual([[1, 0, 0], [1, 0, 0], [1, 0, 0]]);
     });
 
     it('should check column 2', () => {
@@ -39,7 +39,7 @@ describe('Game Utils', () => {
       const result = checkWin(rows);
 
       expect(result.winner).toEqual(1);
-      expect(result.winLine).toEqual({ type: 'column', index: 1 });
+      expect(result.winMatrix).toEqual([[0, 1, 0], [0, 1, 0], [0, 1, 0]]);
     });
 
     it('should check column 3', () => {
@@ -47,7 +47,7 @@ describe('Game Utils', () => {
       const result = checkWin(rows);
 
       expect(result.winner).toEqual(1);
-      expect(result.winLine).toEqual({ type: 'column', index: 2 });
+      expect(result.winMatrix).toEqual([[0, 0, 1], [0, 0, 1], [0, 0, 1]]);
     });
 
     it('should check diagonal 1', () => {
@@ -55,7 +55,7 @@ describe('Game Utils', () => {
       const result = checkWin(rows);
 
       expect(result.winner).toEqual(1);
-      expect(result.winLine).toEqual({ type: 'diagonal', index: 0 });
+      expect(result.winMatrix).toEqual([[1, 0, 0], [0, 1, 0], [0, 0, 1]]);
     });
 
     it('should check diagonal 2', () => {
@@ -63,7 +63,7 @@ describe('Game Utils', () => {
       const result = checkWin(rows);
 
       expect(result.winner).toEqual(1);
-      expect(result.winLine).toEqual({ type: 'diagonal', index: 1 });
+      expect(result.winMatrix).toEqual([[0, 0, 1], [0, 1, 0], [1, 0, 0]]);
     });
   });
 

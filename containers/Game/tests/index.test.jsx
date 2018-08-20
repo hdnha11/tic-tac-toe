@@ -25,6 +25,7 @@ describe('<Game />', () => {
       turn: undefined,
       score: undefined,
       winner: undefined,
+      winMatrix: undefined,
       draw: undefined,
       move: jest.fn(),
       newGame: jest.fn(),
@@ -35,6 +36,14 @@ describe('<Game />', () => {
 
   it('should render an Board component', () => {
     expect(game().find(Board).length).toEqual(1);
+  });
+
+  it('should pass winMatrix prop to Board component', () => {
+    props.winMatrix = [[1, 1, 1], [0, 0, 0], [0, 0, 0]];
+    expect(game()
+      .find(Board)
+      .first()
+      .prop('winMatrix')).toEqual(props.winMatrix);
   });
 
   it('should render an Score component', () => {
